@@ -195,7 +195,7 @@ Module['FS_createPath']('/roms', 'abadia', true, true);
   }
 
  }
- loadPackage({"files": [{"start": 0, "audio": 1, "end": 0, "filename": "/roms/abadia/final.wav"}, {"start": 0, "audio": 0, "end": 174065, "filename": "/roms/abadia/GraficosVGA"}, {"start": 174065, "audio": 1, "end": 174065, "filename": "/roms/abadia/cerrar.wav"}, {"start": 174065, "audio": 1, "end": 174065, "filename": "/roms/abadia/campanas.wav"}, {"start": 174065, "audio": 1, "end": 174065, "filename": "/roms/abadia/fondo.wav"}, {"start": 174065, "audio": 1, "end": 174065, "filename": "/roms/abadia/inicio.wav"}, {"start": 174065, "audio": 1, "end": 174065, "filename": "/roms/abadia/aporrear.wav"}, {"start": 174065, "audio": 1, "end": 174065, "filename": "/roms/abadia/coger.wav"}, {"start": 174065, "audio": 1, "end": 174065, "filename": "/roms/abadia/dejar.wav"}, {"start": 174065, "audio": 1, "end": 174065, "filename": "/roms/abadia/abrir.wav"}, {"start": 174065, "audio": 1, "end": 174065, "filename": "/roms/abadia/tintineo.wav"}, {"start": 174065, "audio": 1, "end": 174065, "filename": "/roms/abadia/pasos.wav"}, {"start": 174065, "audio": 1, "end": 174065, "filename": "/roms/abadia/espejo.wav"}, {"start": 174065, "audio": 0, "end": 334833, "filename": "/roms/abadia/abadia.dsk"}, {"start": 334833, "audio": 0, "end": 508898, "filename": "/roms/abadia/GraficosCPC"}], "remote_package_size": 508898, "package_uuid": "6f2355f8-1397-478a-b740-2c33751cab42"});
+ loadPackage({"files": [{"start": 0, "audio": 1, "end": 0, "filename": "/roms/abadia/final.wav"}, {"start": 0, "audio": 0, "end": 174065, "filename": "/roms/abadia/GraficosVGA"}, {"start": 174065, "audio": 1, "end": 174065, "filename": "/roms/abadia/cerrar.wav"}, {"start": 174065, "audio": 1, "end": 174065, "filename": "/roms/abadia/campanas.wav"}, {"start": 174065, "audio": 1, "end": 174065, "filename": "/roms/abadia/fondo.wav"}, {"start": 174065, "audio": 1, "end": 174065, "filename": "/roms/abadia/inicio.wav"}, {"start": 174065, "audio": 1, "end": 174065, "filename": "/roms/abadia/aporrear.wav"}, {"start": 174065, "audio": 1, "end": 174065, "filename": "/roms/abadia/coger.wav"}, {"start": 174065, "audio": 1, "end": 174065, "filename": "/roms/abadia/dejar.wav"}, {"start": 174065, "audio": 1, "end": 174065, "filename": "/roms/abadia/abrir.wav"}, {"start": 174065, "audio": 1, "end": 174065, "filename": "/roms/abadia/tintineo.wav"}, {"start": 174065, "audio": 1, "end": 174065, "filename": "/roms/abadia/pasos.wav"}, {"start": 174065, "audio": 1, "end": 174065, "filename": "/roms/abadia/espejo.wav"}, {"start": 174065, "audio": 0, "end": 334833, "filename": "/roms/abadia/abadia.dsk"}, {"start": 334833, "audio": 0, "end": 508898, "filename": "/roms/abadia/GraficosCPC"}], "remote_package_size": 508898, "package_uuid": "2f38a878-cafc-4af7-97ad-e9fbfe77333e"});
 
 })();
 
@@ -1408,11 +1408,11 @@ function updateGlobalBufferAndViews(buf) {
 if (!ENVIRONMENT_IS_PTHREAD) { // Pthreads have already initialized these variables in src/worker.js, where they were passed to the thread worker at startup time
 
 var STATIC_BASE = 1024,
-    STACK_BASE = 142032,
+    STACK_BASE = 140800,
     STACKTOP = STACK_BASE,
-    STACK_MAX = 5384912,
-    DYNAMIC_BASE = 5384912,
-    DYNAMICTOP_PTR = 142000;
+    STACK_MAX = 5383680,
+    DYNAMIC_BASE = 5383680,
+    DYNAMICTOP_PTR = 140768;
 
 assert(STACK_BASE % 16 === 0, 'stack must start aligned');
 assert(DYNAMIC_BASE % 16 === 0, 'heap must start aligned');
@@ -1963,7 +1963,7 @@ function _initPthreadsJS(){ PThread.initRuntime(); }
 
 
 
-// STATICTOP = STATIC_BASE + 141008;
+// STATICTOP = STATIC_BASE + 139776;
 /* global initializers */ if (!ENVIRONMENT_IS_PTHREAD) __ATINIT__.push({ func: function() { globalCtors() } });
 
 
@@ -1977,7 +1977,7 @@ memoryInitializer = "VigasocoSDL.html.mem";
 
 /* no memory initializer */
 var tempDoublePtr;
-if (!ENVIRONMENT_IS_PTHREAD) tempDoublePtr = 142016;
+if (!ENVIRONMENT_IS_PTHREAD) tempDoublePtr = 140784;
 assert(tempDoublePtr % 8 == 0);
 
 function copyTempFloat(ptr) { // functions, because inlining this code increases code size too much
@@ -7373,7 +7373,7 @@ function copyTempDouble(ptr) {
   var __pthread_is_main_browser_thread=0; 
   
   
-  var __main_thread_futex_wait_address; if (ENVIRONMENT_IS_PTHREAD) __main_thread_futex_wait_address = PthreadWorkerInit.__main_thread_futex_wait_address; else PthreadWorkerInit.__main_thread_futex_wait_address = __main_thread_futex_wait_address = 141984;function _emscripten_futex_wake(addr, count) {
+  var __main_thread_futex_wait_address; if (ENVIRONMENT_IS_PTHREAD) __main_thread_futex_wait_address = PthreadWorkerInit.__main_thread_futex_wait_address; else PthreadWorkerInit.__main_thread_futex_wait_address = __main_thread_futex_wait_address = 140752;function _emscripten_futex_wake(addr, count) {
       if (addr <= 0 || addr > HEAP8.length || addr&3 != 0 || count < 0) return -22;
       if (count == 0) return 0;
       // Waking (at least) INT_MAX waiters is defined to mean wake all callers.
@@ -7406,7 +7406,7 @@ function copyTempDouble(ptr) {
         _emscripten_register_main_browser_thread_id(PThread.mainThreadBlock);
       },initMainThreadBlock:function () {
         if (ENVIRONMENT_IS_PTHREAD) return undefined;
-        PThread.mainThreadBlock = 141200;
+        PThread.mainThreadBlock = 139968;
   
         for (var i = 0; i < 244/4; ++i) HEAPU32[PThread.mainThreadBlock/4+i] = 0;
   
@@ -7419,7 +7419,7 @@ function copyTempDouble(ptr) {
         HEAP32[((headPtr)>>2)]=headPtr;
   
         // Allocate memory for thread-local storage.
-        var tlsMemory = 141456;
+        var tlsMemory = 140224;
         for (var i = 0; i < 128; ++i) HEAPU32[tlsMemory/4+i] = 0;
         Atomics.store(HEAPU32, (PThread.mainThreadBlock + 116 ) >> 2, tlsMemory); // Init thread-local-storage memory array.
         Atomics.store(HEAPU32, (PThread.mainThreadBlock + 52 ) >> 2, PThread.mainThreadBlock); // Main thread ID.
@@ -9252,7 +9252,7 @@ function copyTempDouble(ptr) {
       return _strftime(s, maxsize, format, tm); // no locale support yet
     }
 
-  var ___dso_handle; if (ENVIRONMENT_IS_PTHREAD) ___dso_handle = PthreadWorkerInit.___dso_handle; else PthreadWorkerInit.___dso_handle = ___dso_handle = 141040;
+  var ___dso_handle; if (ENVIRONMENT_IS_PTHREAD) ___dso_handle = PthreadWorkerInit.___dso_handle; else PthreadWorkerInit.___dso_handle = ___dso_handle = 139808;
 
 FS.staticInit();Module["FS_createFolder"] = FS.createFolder;Module["FS_createPath"] = FS.createPath;Module["FS_createDataFile"] = FS.createDataFile;Module["FS_createPreloadedFile"] = FS.createPreloadedFile;Module["FS_createLazyFile"] = FS.createLazyFile;Module["FS_createLink"] = FS.createLink;Module["FS_createDevice"] = FS.createDevice;Module["FS_unlink"] = FS.unlink;;
 if (ENVIRONMENT_HAS_NODE) { var fs = require("fs"); var NODEJS_PATH = require("path"); NODEFS.staticInit(); };
